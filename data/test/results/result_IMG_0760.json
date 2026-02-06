@@ -1,0 +1,186 @@
+{
+  "activity": {
+    "active_time": 6.666666666666665,
+    "activity_percentage": 59.171597633136074,
+    "average_rest_period": 0.33939393939393947,
+    "max_rest_period": 1.7333333333333332,
+    "min_rest_period": 0.0,
+    "rest_time": 4.600000000000002
+  },
+  "average_speed": 3.8427829078308533,
+  "fatigue": {
+    "indicator": 34.605018857579836,
+    "speed_trend": "improving"
+  },
+  "graphs": {
+    "hand_distribution": {
+      "left": 7,
+      "right": 5
+    },
+    "punches_by_interval": [
+      11,
+      1
+    ],
+    "speed_over_time": [
+      3.25,
+      3.6822884012539188,
+      2.6,
+      3.0767328456983627,
+      3.3409090909090904
+    ]
+  },
+  "intensity": {
+    "peak_interval": {
+      "interval": 0,
+      "punches": 11
+    },
+    "punches_by_interval": [
+      11,
+      1
+    ],
+    "score": 4.092904872245879
+  },
+  "performance": {
+    "average_punch_duration": 0.5555555555555555,
+    "fastest_punch": {
+      "duration": 0.3333333333333339,
+      "index": 8,
+      "speed": 5.0,
+      "time": 6.6
+    },
+    "max_speed": 5.0,
+    "min_speed": 2.5,
+    "slowest_punch": {
+      "duration": 0.1999999999999993,
+      "index": 4,
+      "speed": 2.5,
+      "time": 4.133333333333334
+    },
+    "speed_variance": 0.8246217100987725
+  },
+  "punch_events": [
+    {
+      "confidence": 0.65,
+      "duration": 0.9333333333333333,
+      "end": 0.9333333333333333,
+      "hand": "left",
+      "index": 1,
+      "punch_type": "jab",
+      "speed": 3.25,
+      "start": 0.0
+    },
+    {
+      "confidence": 0.7364576802507837,
+      "duration": 0.9333333333333336,
+      "end": 3.6,
+      "hand": "left",
+      "index": 2,
+      "punch_type": "jab",
+      "speed": 3.6822884012539188,
+      "start": 2.6666666666666665
+    },
+    {
+      "confidence": 0.7294125971648197,
+      "duration": 0.19999999999999973,
+      "end": 3.933333333333333,
+      "hand": "right",
+      "index": 3,
+      "punch_type": "punch",
+      "speed": 3.6470629858240984,
+      "start": 3.7333333333333334
+    },
+    {
+      "confidence": 0.5,
+      "duration": 0.1999999999999993,
+      "end": 4.333333333333333,
+      "hand": "right",
+      "index": 4,
+      "punch_type": "punch",
+      "speed": 2.5,
+      "start": 4.133333333333334
+    },
+    {
+      "confidence": 0.52,
+      "duration": 0.9333333333333336,
+      "end": 5.266666666666667,
+      "hand": "left",
+      "index": 5,
+      "punch_type": "jab",
+      "speed": 2.6,
+      "start": 4.333333333333333
+    },
+    {
+      "confidence": 0.7952813337921688,
+      "duration": 1.2666666666666666,
+      "end": 6.266666666666667,
+      "hand": "left",
+      "index": 6,
+      "punch_type": "jab",
+      "speed": 3.976406668960844,
+      "start": 5.0
+    },
+    {
+      "confidence": 0.7933191402367026,
+      "duration": 0.13333333333333286,
+      "end": 6.6,
+      "hand": "right",
+      "index": 7,
+      "punch_type": "punch",
+      "speed": 3.966595701183513,
+      "start": 6.466666666666667
+    },
+    {
+      "confidence": 1.0,
+      "duration": 0.3333333333333339,
+      "end": 6.933333333333334,
+      "hand": "left",
+      "index": 8,
+      "punch_type": "punch",
+      "speed": 5.0,
+      "start": 6.6
+    },
+    {
+      "confidence": 0.6681818181818181,
+      "duration": 1.2666666666666675,
+      "end": 8.266666666666667,
+      "hand": "left",
+      "index": 9,
+      "punch_type": "jab",
+      "speed": 3.3409090909090904,
+      "start": 7.0
+    },
+    {
+      "confidence": 1.0,
+      "duration": 0.13333333333333286,
+      "end": 8.6,
+      "hand": "left",
+      "index": 10,
+      "punch_type": "punch",
+      "speed": 5.0,
+      "start": 8.466666666666667
+    },
+    {
+      "confidence": 0.8300264091677544,
+      "duration": 0.1999999999999993,
+      "end": 9.666666666666666,
+      "hand": "right",
+      "index": 11,
+      "punch_type": "punch",
+      "speed": 4.150132045838772,
+      "start": 9.466666666666667
+    },
+    {
+      "confidence": 1.0,
+      "duration": 0.13333333333333286,
+      "end": 10.133333333333333,
+      "hand": "right",
+      "index": 12,
+      "punch_type": "punch",
+      "speed": 5.0,
+      "start": 10.0
+    }
+  ],
+  "punches_per_minute": 63.90532544378698,
+  "session_duration": 11.266666666666667,
+  "total_punches": 12
+}
