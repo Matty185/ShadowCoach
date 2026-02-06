@@ -42,7 +42,11 @@ LANDMARK_RIGHT_HIP = 24
 
 # Feature extraction settings
 WINDOW_SIZE_FRAMES = 15  # Number of frames in each sliding window
-WINDOW_STEP_FRAMES = 5  # Step size between windows 
+WINDOW_STEP_FRAMES = 5  # Step size between windows
+
+# Optimized detection settings
+PUNCH_REGION_MARGIN_FRAMES = 10  # Extra frames to include around detected punches for ML classification
+WINDOW_OVERLAP_THRESHOLD = 0.3  # Minimum overlap fraction for window-to-punch matching 
 
 # Model training settings
 TEST_SIZE = 0.2  # Fraction of data to use for testing

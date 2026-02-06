@@ -18,8 +18,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 from config import MODELS_DIR, LANDMARKS_DIR
 from pose_extraction import process_video
 from inference import (
-    analyze_video, 
-    merge_overlapping_jabs, 
+    analyze_video,  # Legacy function (kept for reference)
+    analyze_video_optimized,  # NEW: Optimized detection pipeline
+    merge_overlapping_jabs,
     merge_overlapping_punches,
     calculate_comprehensive_metrics,
     compute_per_frame_features,
@@ -119,33 +120,23 @@ def analyze():
         print(f"[API] [OK] Landmarks extracted: {landmark_file}")
 
         # Step 2: Load landmark data and compute features
-        print("[API] Step 2/5: Loading landmark data and computing features...")
+        print("[API] Step 2/4: Loading landmark data and computing features...")
         landmark_df = pd.read_csv(landmark_file)
         feature_df = compute_per_frame_features(landmark_df)
 
-        # Step 3: Run jab detection (model-based)
-        print("[API] Step 3/5: Running jab detection model...")
-        jab_windows = analyze_video(Path(landmark_file), model, feature_names, fps=15)
-        merged_jabs = merge_overlapping_jabs(jab_windows) if len(jab_windows) > 0 else []
-        
-        # Add punch_type label to jabs
-        for jab in merged_jabs:
-            jab['punch_type'] = 'jab'
-            # Try to determine hand from features if not already set
-            if 'hand' not in jab:
-                jab['hand'] = 'left'  # Default for current model (only left jab detection)
+        # Step 3: Run OPTIMIZED detection pipeline (generic → ML classification)
+        print("[API] Step 3/4: Running optimized detection (generic detection → ML classification)...")
+        ml_classified_punches, unclassified_punches = analyze_video_optimized(
+            feature_df=feature_df,
+            landmark_df=landmark_df,
+            model=model,
+            feature_names=feature_names,
+            fps=15
+        )
 
-        # Step 4: Run generic punch detection (motion-based)
-        print("[API] Step 4/5: Running motion-based punch detection...")
-        generic_punches = detect_generic_punches(feature_df, landmark_df, fps=15)
-        
-        # Add punch_type label to generic punches
-        for punch in generic_punches:
-            punch['punch_type'] = 'punch'
-
-        # Step 5: Merge all punches (prefer jab label when overlapping)
-        print("[API] Step 5/5: Merging detections and calculating metrics...")
-        all_punches = merged_jabs + generic_punches
+        # Step 4: Merge and deduplicate results
+        print("[API] Step 4/4: Merging detections and calculating metrics...")
+        all_punches = ml_classified_punches + unclassified_punches
         merged_punches = merge_overlapping_punches(all_punches, prefer_jab=True) if len(all_punches) > 0 else []
 
         # Calculate comprehensive metrics using all punches
